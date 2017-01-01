@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularServeices</title>
+</head>
+<body>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/js/app.js"></script>
+    <script src="scripts/controllers/randomController.js"></script>
+    <script src="scripts/services/randomServices.js"></script>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    </style>
+
+<div ng-app="myApp" ng-controller="randomCtrl">
+    <h1 ng-bind="boolMsg ? h1: h2"></h1>
+    <br>
+    <button ng-click="generateRandomNumber()">Generate Random Number</button>
+    <br>
+    {{ randomNumber }}
+    <button ng-click="callMe()" type="button"> Change Heading</button>
+    <button ng-bind="showRecs ? 'Hide Records': 'Show Records'" ng-click="getRecords()"></button>
+
+    <table ng-show="showRecs" style="width:30%">
+        <th>Name</th>
+        <th>Age</th>
+        <th>Sex</th>
+
+        <tbody ng-repeat="record in records">
+        <tr>
+            <td ng-bind="record.name"></td>
+            <td ng-bind="record.age"></td>
+            <td ng-bind="record.sex"></td>
+        </tr>
+
+        </tbody>
+
+    </table>
+    <button ng-show="showRecs" ng-bind="addRec ? 'Save Record': 'Add Record'"
+            ng-click="addRec ? saveRecord(): addRecord()"></button>
+    <div ng-show="addRec">
+        <input type="text" ng-model="name" placeholder="Name" required>
+        <input type="number" ng-model="age" placeholder="Age" required>
+        <input type="text" ng-model="sex" placeholder="Sex" required>
+    </div>
+</div>
+</body>
+</html>
