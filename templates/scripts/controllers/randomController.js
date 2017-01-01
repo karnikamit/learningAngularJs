@@ -1,11 +1,9 @@
-app.controller('randomCtrl', function($scope, randomService){
+app.controller('randomCtrl', function($scope, $window, randomService){
     $scope.message = '';
     $scope.generateRandomNumber = function(){
         $scope.randomNumber = randomService.generate();
     };
-    $scope.records = [{'name': 'Amit', 'age': 28, 'sex': 'Male'},
-                      {'name': 'Sowmya', 'age': 27, 'sex': 'Female'},
-                      {'name': 'Uma', 'age': 24, 'sex': 'Female'}];
+    $scope.records = [];
     $scope.h1 = 'Hello AngularJs';
     $scope.h2 = 'Hi Amit';
     $scope.boolMsg = true;
@@ -32,13 +30,17 @@ app.controller('randomCtrl', function($scope, randomService){
         $scope.addRec = !$scope.addRec;
     };
     $scope.saveRecord = function(){
-        tempRecord = {
-            'name': $scope.name,
-            'age': $scope.age,
-            'sex': $scope.sex
+        if ($scope.name && $scope.age && $scope.sex){
+            tempRecord = {
+                'name': $scope.name,
+                'age': $scope.age,
+                'sex': $scope.sex
+            }
+            $scope.records.push(tempRecord)
+            _initRec()
+            $scope.addRec = false;
+        }else{
+            $window.alert('All Fields are required!')
         }
-        $scope.records.push(tempRecord)
-        _initRec()
-        $scope.addRec = false;
     };
 });
