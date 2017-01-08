@@ -43,4 +43,11 @@ app.controller('randomCtrl', function($scope, $window, randomService){
             $window.alert('All Fields are required!')
         }
     };
+
+    // post on fb
+    $scope.fbPost = function(){
+        msg = randomService.fb_post($scope.post);
+        $scope.posted = msg;
+        return "Success"    // return response!
+    };
 });

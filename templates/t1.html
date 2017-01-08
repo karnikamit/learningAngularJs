@@ -17,10 +17,10 @@
 
 <div ng-app="myApp" ng-controller="randomCtrl">
     <h1 ng-bind="boolMsg ? h1: h2"></h1>
-    <br>
-    <button ng-click="generateRandomNumber()">Generate Random Number</button>
-    <br>
-    {{ randomNumber }}
+    <!--<br>-->
+    <!--<button ng-click="generateRandomNumber()">Generate Random Number</button>-->
+    <!--<br>-->
+    <!--{{ randomNumber }}-->
     <button ng-click="callMe()" type="button"> Change Heading</button>
     <button ng-bind="showRecs ? 'Hide Records': 'Show Records'" ng-click="getRecords()"></button>
 
@@ -36,6 +36,7 @@
             <td ng-bind="record.sex"></td>
         </tr>
 
+
         </tbody>
 
     </table>
@@ -45,6 +46,14 @@
         <input type="text" ng-model="name" placeholder="Name" required>
         <input type="number" ng-model="age" placeholder="Age" required>
         <input type="text" ng-model="sex" placeholder="Sex" required>
+    </div>
+    <div>
+        <input type="text" ng-model="post" placeholder="What's on your mind...">
+        <br>
+        <button type="submit" ng-click="fbPost()">Post</button>
+        <br>
+        {{ posted }}
+
     </div>
 </div>
 </body>
