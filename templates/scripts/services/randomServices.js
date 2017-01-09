@@ -12,13 +12,23 @@ app.service('randomService', function($http){
     };
 
     // post on fb
-    this.fb_post = function(post_text){
+    this.fb_post = function(post_text, callBack){
         $http({
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         url: "http://localhost:9000/write_wall",
         data: {"msg": post_text}}).then(function(response){
-        return response.data.msg;
+        callBack(response);
+        });
+    };
+
+    this.getTracks = function(reqTracks, callBack){
+        $http({
+            method:"GET",
+            headers: {"Content-Type": "application/json"},
+            url: "http://localhost:9000/get-tracks"+"/"+ reqTracks
+        }).then(function(response){
+            callBack(response);
         });
     };
 });

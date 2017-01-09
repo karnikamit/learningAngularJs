@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO</title>
+</head>
+<body>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/js/app.js"></script>
+    <script src="scripts/bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+    <script src="scripts/controllers/todoController"></script>
+
+    <style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    </style>
+<div ng-app="myApp" ng-controller="todoCtrl">
+    <div>
+        <button type="submit" ng-click="todoCtrl.addTodo()">Add TODO</button>
+
+    </div>
+
+    <table style="width:30%">
+        <th>Select</th>
+        <th>TODO</th>
+        <th>Priority</th>
+        <tbody ng-repeat="todo in todoList">
+        <tr>
+            <td><input type="checkbox" value="true" ng-model="todo.checked"></td>
+            <td ng-bind="todo.todo_name"></td>
+            <td ng-bind="todo.priority"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+</body>
+</html>

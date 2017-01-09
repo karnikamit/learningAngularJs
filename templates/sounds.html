@@ -1,0 +1,15 @@
+<div>
+    <button type="submit" ng-click="getTracks(reqTracks)">GET TRACKS</button>
+    <input type="number" placeholder="reqTracks" ng-model="reqTracks">
+    <table ng-show="tracks">
+        <th>Title</th>
+        <th>Stream URL</th>
+        <tbody ng-repeat="track in tracks">
+        <tr>
+            <td ng-bind="track.title"></td>
+            <td ng-bind="track.url"></td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>

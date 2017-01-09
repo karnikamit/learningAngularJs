@@ -9,6 +9,8 @@
     <script src="scripts/js/app.js"></script>
     <script src="scripts/controllers/randomController.js"></script>
     <script src="scripts/services/randomServices.js"></script>
+    <script src="scripts/bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+
     <style>
     table, th, td {
         border: 1px solid black;
@@ -47,14 +49,10 @@
         <input type="number" ng-model="age" placeholder="Age" required>
         <input type="text" ng-model="sex" placeholder="Sex" required>
     </div>
-    <div>
-        <input type="text" ng-model="post" placeholder="What's on your mind...">
-        <br>
-        <button type="submit" ng-click="fbPost()">Post</button>
-        <br>
-        {{ posted }}
+    <div sound-cloud>
 
     </div>
+
 </div>
 </body>
 </html>

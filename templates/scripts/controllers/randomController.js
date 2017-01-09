@@ -46,8 +46,18 @@ app.controller('randomCtrl', function($scope, $window, randomService){
 
     // post on fb
     $scope.fbPost = function(){
-        msg = randomService.fb_post($scope.post);
-        $scope.posted = msg;
-        return "Success"    // return response!
+        msg = $scope.post;
+        $scope.post = '';
+        randomService.fb_post(msg, function(resp){
+            $scope.posted = resp.data.msg;
+        });
+    };
+
+    // Get tracks from sound cloud
+    $scope.reqTracks = 10;
+    $scope.getTracks = function(reqTracks){
+        randomService.getTracks($scope.reqTracks ,function(response){
+            $scope.tracks = response.data;
+        });
     };
 });
