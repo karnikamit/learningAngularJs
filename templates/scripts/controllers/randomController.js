@@ -60,4 +60,12 @@ app.controller('randomCtrl', function($scope, $window, randomService){
             $scope.tracks = response.data;
         });
     };
+
+    // Get track info
+    $scope.trackUrl = '';
+    $scope.soundCloudWidget = '';
+    $scope.get_info = function(trackUrl){
+        Widget = randomService.getInfo(trackUrl);
+        $scope.soundCloudWidget=Widget.html;
+        };
 });

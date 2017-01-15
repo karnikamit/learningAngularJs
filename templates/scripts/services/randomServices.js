@@ -31,4 +31,15 @@ app.service('randomService', function($http){
             callBack(response);
         });
     };
+
+    this.getInfo = function(trackUrl){
+        $http({
+            method:"POST",
+            headers: {"Content-Type": "application/json"},
+            url: "http://localhost:9000/getWidget",
+            data: {'url': trackUrl}
+        }).success(function(data, status){
+            return data
+        })
+    };
 });
